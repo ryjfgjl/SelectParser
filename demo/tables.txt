@@ -1,0 +1,16 @@
+demo.sql,country
+demo.sql,dual
+demo.sql,order
+demo.sql,user1.customer
+demo.sql,address
+demo.sql,contact
+demo.sql,company
+demo.sql,order
+demo.sql,customer
+demo.sql,address
+demo.sql,contact
+demo.sql,dual
+demo.sql,user1.order
+demo.sql,user2.customer
+demo.sql,order
+demo.sql,dual
