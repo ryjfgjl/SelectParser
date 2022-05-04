@@ -1,5 +1,5 @@
 # SelectParser
-# Bref: A tool for extract tables name from sql files.
+# Bref: A tool to extract table names from sql files.
 # Picture:
 ![image](https://user-images.githubusercontent.com/39375647/166620735-db9e68b9-6143-435b-bd8d-8cfbbe2a19f2.png)
 # Features
