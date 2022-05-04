@@ -8,6 +8,7 @@ Support all case for standrad sql from different database(oracle/mysql/sql serve
 Deep Support Oracle SQL
 # Usage
 1. Start Program
+
 Way 1: python main.py
 
 Way 2: Send an email to 2577154121@qq.com, you can get an exe program which can directly run on windows.
