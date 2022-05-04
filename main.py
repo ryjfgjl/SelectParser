@@ -1,9 +1,9 @@
 #######################################################################################################################
-# Tool Name: ExcelToDatabase
-# Version: V4.3
-# Bref: A tool which can batch import excel files into mysql/oracle database.
+# Tool Name: SelectParse
+# Version: V1.0
+# Bref: A tool to extract table names from sql files.
 # Feature: Automation, One-Click, High Speed, Automatic Correct Error
-# Tested Environment: Windows 7+, MySQL 5.6+/Oracle 11g+, Excel 1997+(xls,xlsx,csv)
+# Supported SQL: Standard SQL, Oracle SQL, MySQL sql
 # Author: ryjfgjl
 # Help Email: 2577154121@qq.com
 #######################################################################################################################
