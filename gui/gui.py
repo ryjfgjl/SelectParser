@@ -39,7 +39,7 @@ class Gui():
                  sg.FolderBrowse(initial_folder='{}'.format(default_values['file_dir']), button_text=' Choose ')],
                 [sg.Text('Get Tables'.format(default_values['dbtype']), size=(17, 1), text_color='red'),
                  ],
-                [sg.Text('File:', size=(8, 1)),
+                [sg.Text('Output File:', size=(8, 1)),
                  sg.Input('{}'.format(default_values['file_path']), key='file_path', size=(35, 1)),
                  sg.FileBrowse(button_text=' Choose ')],
 
@@ -54,7 +54,7 @@ class Gui():
             menu_def = [
                 ['&语言', ['&中文', '&English']],
                 ['&数据库', ['&MySQL', '&Oracle']],
-                ['&获取帮助', ['&联系方式']],
+                #['&获取帮助', ['&联系方式']],
             ]
             # general
             layout_general = [
@@ -65,7 +65,7 @@ class Gui():
                  sg.FolderBrowse(initial_folder='{}'.format(default_values['file_dir']), button_text=' 选择 ')],
                 [sg.Text('获取表名', size=(12, 1), text_color='red'),
                  ],
-                [sg.Text('文件:', size=(12, 1)),
+                [sg.Text('输出文件:', size=(12, 1)),
                  sg.Input('{}'.format(default_values['file_path']), key='file_path', size=(35, 1)),
                  sg.FileBrowse( button_text=' 选择 ')],
 
