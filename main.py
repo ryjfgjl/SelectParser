@@ -1,15 +1,16 @@
 #######################################################################################################################
-# Tool Name: SelectParse
-# Version: V1.0
+# Tool Name: SelectParser
+# Version: V1.1
 # Bref: A tool to extract table names from sql files.
-# Feature: Automation, One-Click, High Speed, Automatic Correct Error
 # Supported SQL: Standard SQL, Oracle SQL, MySQL sql
 # Author: ryjfgjl
 # Help Email: 2577154121@qq.com
 #######################################################################################################################
 
 # Version
-Version = "1.0"
+import os
+
+Version = "1.1"
 
 import PySimpleGUI as sg
 import traceback
@@ -19,14 +20,14 @@ import pyperclip
 from common.handleconfig import HandleConfig
 from gui.gui import Gui
 
-sg.ChangeLookAndFeel('dark')
+sg.ChangeLookAndFeel('BlueMono')
 HandleConfig = HandleConfig()
 Gui = Gui()
 
 # format exception output
 def exception_format():
     return "".join(traceback.format_exception(
-        sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2],limit=1
+        sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2]#,limit=1
     ))
 
 # GO
@@ -61,6 +62,10 @@ while True:
             HandleConfig.save_defaults(values)
             window = sg.Window('SelectParser {0}'.format(Version), Gui.generate_layout(), location=(700, 100))
             window.Finalize()
+        elif event == "View Output" or event == "查看输出":
+            os.popen(os.path.split(os.path.realpath(sys.argv[0]))[0] + r'\output\output.csv')
+        elif event == "View Error" or event == "查看错误":
+            os.popen(os.path.split(os.path.realpath(sys.argv[0]))[0] + r'\output\error.csv')
         elif event == "联系方式":
             from events.setting import Setting
             Setting = Setting()

@@ -33,18 +33,13 @@ class Gui():
             # general
             layout_general = [
                 [sg.Menu(menu_def)],
-                [sg.Text('SQL Files', size=(12, 1), text_color='red')],
-                [sg.Text('Directory:', size=(8, 1)),
-                 sg.Input('{}'.format(default_values['file_dir']), key='file_dir', size=(35, 1)),
-                 sg.FolderBrowse(initial_folder='{}'.format(default_values['file_dir']), button_text=' Choose ')],
-                [sg.Text('Get Tables'.format(default_values['dbtype']), size=(17, 1), text_color='red'),
+                [sg.Text('SQL Files', size=(12, 1))],
+                [sg.Input(key='file_dir', size=(53, 1)),
+                 sg.FilesBrowse(initial_folder='{}'.format(default_values['file_dir']), button_text=' Choose ')],
+                [sg.Button('View Output', size=(26, 1)),
+                 sg.Button('View Error', size=(27, 1)),
                  ],
-                [sg.Text('Output File:', size=(8, 1)),
-                 sg.Input('{}'.format(default_values['file_path']), key='file_path', size=(35, 1)),
-                 sg.FileBrowse(button_text=' Choose ')],
-
-
-                [sg.Button('Start', size=(52, 1))]
+                [sg.Button('Start', size=(55, 1))]
             ]
 
 
@@ -59,17 +54,13 @@ class Gui():
             # general
             layout_general = [
                 [sg.Menu(menu_def)],
-                [sg.Text('SQL文件', size=(12, 1), text_color='red')],
-                [sg.Text('目录:', size=(12, 1)),
-                 sg.Input('{}'.format(default_values['file_dir']), key='file_dir', size=(35, 1)),
-                 sg.FolderBrowse(initial_folder='{}'.format(default_values['file_dir']), button_text=' 选择 ')],
-                [sg.Text('获取表名', size=(12, 1), text_color='red'),
+                [sg.Text('SQL文件', size=(12, 1))],
+                [sg.Input(key='file_dir', size=(53, 1)),
+                 sg.FilesBrowse(initial_folder='{}'.format(default_values['file_dir']), button_text=' 多选 ')],
+                [sg.Button('查看输出', size=(25, 1)),
+                 sg.Button('查看错误', size=(26, 1)),
                  ],
-                [sg.Text('输出文件:', size=(12, 1)),
-                 sg.Input('{}'.format(default_values['file_path']), key='file_path', size=(35, 1)),
-                 sg.FileBrowse( button_text=' 选择 ')],
-
-                [sg.Button('开始', size=(52, 1))]
+                [sg.Button('开始', size=(53, 1))]
             ]
 
 

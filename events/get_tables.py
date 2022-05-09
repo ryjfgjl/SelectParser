@@ -1,4 +1,4 @@
-import os
+import os, sys
 import re
 from collections import defaultdict
 import chardet
@@ -10,21 +10,24 @@ class GetTable:
         self.values = values
 
     def main(self):
-        dir = self.values['file_dir']
-        txt = self.values['file_path']
-        txt_encoding = self.get_encoding(txt)
-        with open(txt, 'w', encoding=txt_encoding) as fw:
-            fw.truncate()
-        sqlfiles = os.listdir(dir)
+        sqlfiles = self.values['file_dir']
+        output_csv = os.path.split(os.path.realpath(sys.argv[0]))[0] + r'\output\output.csv'
+        error_csv = os.path.split(os.path.realpath(sys.argv[0]))[0] + r'\output\error.csv'
+        csv_encoding = 'ansi'
+        if os.path.isfile(output_csv):
+            os.remove(output_csv)
+        if os.path.isfile(error_csv):
+            os.remove(error_csv)
+        with open(output_csv, 'a+', encoding=csv_encoding) as fw:
+            fw.write('{0},{1}\n'.format('File', 'Table'))
+        sqlfiles = sqlfiles.split(';')
         for sqlfile in sqlfiles:
             try:
                 #if sqlfile != 'demo.sql':
                 #   continue
                    #pass
-                if not os.path.isfile(dir+'\\'+sqlfile):
-                    continue
-                encoding = self.get_encoding(dir+'\\'+sqlfile)
-                with open(dir+'\\'+sqlfile, 'r', encoding=encoding) as fr:
+                encoding = self.get_encoding(sqlfile)
+                with open(sqlfile, 'r', encoding=encoding) as fr:
                     sqltexts = fr.readlines()
 
                 sql = ''
@@ -129,11 +132,13 @@ class GetTable:
 
                 for table in tables:
                     if table not in tmptables:
-                        with open(txt, 'a+', encoding=encoding) as fw:
-                            fw.write('{0},{1}\n'.format(sqlfile, table))
-                        print(sqlfile, table)
-            except:
-                print('Error:',sqlfile)
+                        with open(output_csv, 'a+', encoding=csv_encoding) as fw:
+                            fw.write('{0},{1}\n'.format(sqlfile.split('/')[-1], table))
+                        print(sqlfile.split('/')[-1], table)
+            except Exception as reason:
+                with open(error_csv, 'a+', encoding=csv_encoding) as fw:
+                    fw.write('{0},{1}\n'.format(sqlfile.split('/')[-1], str(reason)))
+                print('Error:', sqlfile.split('/')[-1])
 
         sg.Popup('Complete!')
 

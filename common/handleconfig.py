@@ -39,7 +39,6 @@ class HandleConfig:
 
         # get default value: file
         file_dir = self.handle_config("g", "file", "file_dir")
-        file_path = self.handle_config("g", "file", "file_path")
 
 
         default_values = {
@@ -47,7 +46,6 @@ class HandleConfig:
             'dbtype': dbtype,
 
             'file_dir': file_dir,
-            'file_path': file_path,
 
         }
         return default_values
@@ -56,4 +54,3 @@ class HandleConfig:
         # save input
         self.handle_config("s", "file", "file_dir", values['file_dir'])
 
-        self.handle_config("s", "file", "file_path", values['file_path'])
